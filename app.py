@@ -53,11 +53,22 @@ def query_vector_db(query, vector_db):
     )
     return chat_completion['choices'][0]['message']['content']
 
+
+
 # Streamlit app
 st.title("PDF Chatbot")
 
-# Upload PDF
-uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
+#Allow users to upload and process multiple PDFs at once. Combine text from all PDFs into a single searchable database.
+# Display file uploader
+uploaded_files = st.file_uploader("Upload PDF files", type=["pdf"], accept_multiple_files=True)
+all_text = ""
+for uploaded_file in uploaded_files:
+    with NamedTemporaryFile(delete=False, suffix=".pdf") as temp_file:
+        temp_file.write(uploaded_file.read())
+        pdf_path = temp_file.name
+    all_text += extract_text_from_pdf(pdf_path)
+chunks = chunk_text(all_text)
+
 
 if uploaded_file:
     with NamedTemporaryFile(delete=False, suffix=".pdf") as temp_file:
