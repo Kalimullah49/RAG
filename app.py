@@ -1,5 +1,5 @@
 import os
-from groq import Groq  # Ensure Groq API client is available
+from groq import Groq
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -7,11 +7,8 @@ from PyPDF2 import PdfReader
 import streamlit as st
 from tempfile import NamedTemporaryFile
 
-import os
-os.environ['GROQ_API_KEY'] = "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"
-
 # Initialize the Groq client
-client = Groq(api_key=os.environ['GROQ_API_KEY']) 
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # Function to extract text from PDF
 def extract_text_from_pdf(pdf_path):
@@ -31,65 +28,53 @@ def chunk_text(text, chunk_size=500, chunk_overlap=50):
 
 # Function to create embeddings and store them in FAISS
 def create_embedding_and_store(chunks):
-    # Using HuggingFace Embeddings for generating embeddings
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-    # Creating FAISS vector store
     vector_db = FAISS.from_texts(chunks, embeddings)
     return vector_db
 
 # Function to query the vector database and interact with Groq
 def query_vector_db(query, vector_db):
-    # Retrieve relevant docs
     docs = vector_db.similarity_search(query, k=3)
     context = "\n".join([doc.page_content for doc in docs])
-    
-    # Interact with Groq API to generate response
-    chat_completion = client.chat_completion.create(
-        messages=[
-            {"role": "system", "content": f"use following context:\n{context}"},
-            {"role": "user", "content": query}
-        ],
-        model="llama3-8b_8192"  # Make sure the model name is correct
-    )
-    return chat_completion['choices'][0]['message']['content']
 
-
+    try:
+        chat_completion = client.chat_completion.create(
+            messages=[
+                {"role": "system", "content": f"use following context:\n{context}"},
+                {"role": "user", "content": query}
+            ],
+            model="llama3-8b_8192"
+        )
+        return chat_completion['choices'][0]['message']['content']
+    except Exception as e:
+        return f"Error interacting with Groq: {str(e)}"
 
 # Streamlit app
 st.title("PDF Chatbot")
 
-#Allow users to upload and process multiple PDFs at once. Combine text from all PDFs into a single searchable database.
-# Display file uploader
-uploaded_files = st.file_uploader("Upload PDF files", type=["pdf"], accept_multiple_files=True)
-all_text = ""
-for uploaded_file in uploaded_files:
-    with NamedTemporaryFile(delete=False, suffix=".pdf") as temp_file:
-        temp_file.write(uploaded_file.read())
-        pdf_path = temp_file.name
-    all_text += extract_text_from_pdf(pdf_path)
-chunks = chunk_text(all_text)
-
+# Upload PDF
+uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
 
 if uploaded_file:
     with NamedTemporaryFile(delete=False, suffix=".pdf") as temp_file:
         temp_file.write(uploaded_file.read())
         pdf_path = temp_file.name
 
-    # Extract text from PDF
-    text = extract_text_from_pdf(pdf_path)
-    st.write("Text extracted successfully.")
+    try:
+        text = extract_text_from_pdf(pdf_path)
+        st.write("Text extracted successfully.")
+    except Exception as e:
+        st.write(f"Error extracting text from PDF: {str(e)}")
+        text = None
 
-    # Chunk text
-    chunks = chunk_text(text)
-    st.write("Text chunked successfully.")
-
-    # Generate embeddings and store in FAISS
-    vector_db = create_embedding_and_store(chunks)
-    st.write("Text embeddings generated and stored successfully.")
-
-    # User query input
-    user_query = st.text_input("Enter your query")
-    if user_query:
-        response = query_vector_db(user_query, vector_db)
-        st.write("Response from Groq:")
-        st.write(response)
+    if text:
+        chunks = chunk_text(text)
+        st.write("Text chunked successfully.")
+        vector_db = create_embedding_and_store(chunks)
+        st.write("Text embeddings generated and stored successfully.")
+        
+        user_query = st.text_input("Enter your query")
+        if user_query:
+            response = query_vector_db(user_query, vector_db)
+            st.write("Response from Groq:")
+            st.write(response)
