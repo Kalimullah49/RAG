@@ -1,0 +1,58 @@
+<mxfile host="65bd71144e">
+    <diagram id="FQteIXLFlwPq4psIknJb" name="Page-1">
+        <mxGraphModel dx="1204" dy="849" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="67" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.462;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Tahoma;fontSize=11;fontColor=#E0E4FF;" edge="1" parent="1" source="27" target="47">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="&#10;&lt;b&gt;&lt;span style=&quot;font-size:16.0pt;&#10;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:&#10;&amp;quot;Segoe UI&amp;quot;;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:&amp;quot;Segoe UI&amp;quot;;&#10;color:black;mso-themecolor:text1;mso-ansi-language:EN-US;mso-fareast-language:&#10;ZH-CN;mso-bidi-language:AR-SA&quot; lang=&quot;EN-US&quot;&gt;AI Mental Health Therapist &lt;/span&gt;&lt;/b&gt;&#10;&#10;&#10;&#10;" style="whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="30" width="510" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="&lt;p align=&quot;center&quot; class=&quot;MsoNormal&quot;&gt;&lt;span style=&quot;font-size:16.0pt;mso-fareast-font-family:&amp;quot;Segoe UI&amp;quot;;mso-bidi-font-family:&lt;br/&gt;&amp;quot;Segoe UI&amp;quot;;color:#0F0F0F;mso-ansi-language:EN-GB&quot;&gt;A Mind Care&lt;/span&gt;&lt;/p&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#0F111D;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="45" width="90" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" style="edgeStyle=none;html=1;fontFamily=Tahoma;fontSize=12;fontColor=#ffffff;" edge="1" parent="1" source="47" target="48">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="&lt;br&gt;&lt;p&gt;&lt;strong&gt;PDF Upload and Extraction&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: initial;&quot;&gt;PDF Upload&lt;/strong&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;: Users upload their PDF documents through the Streamlit interface.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: initial;&quot;&gt;PDF Extraction&lt;/strong&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;: Use libraries like &lt;/span&gt;&lt;code&gt;UnstructuredPDFLoader&lt;/code&gt;&lt;span style=&quot;background-color: initial;&quot;&gt; to extract text from the uploaded PDFs.&lt;/span&gt;&lt;/p&gt;" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;shadow=0;glass=0;fillStyle=auto;strokeColor=#C73500;fontFamily=Tahoma;fontSize=12;fontColor=#E0E4FF;fillColor=#fa6800;fontStyle=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="277.5" y="220" width="362.5" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.458;entryY=-0.021;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;fontColor=#ffffff;" edge="1" parent="1" source="48" target="49">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;shadow=0;glass=0;fillStyle=auto;strokeColor=#A50040;fontFamily=Helvetica;fontSize=12;fontColor=#ffffff;fillColor=#d80073;" vertex="1" parent="1">
+                    <mxGeometry x="283.04" y="750" width="358.91" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" style="edgeStyle=none;html=1;fontFamily=Tahoma;fontSize=11;fontColor=#E0E4FF;" edge="1" parent="1" source="49" target="63">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;p&gt;&lt;strong&gt;Vector Storage&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;FAISS Vector Store&lt;/strong&gt;: Store the text chunks as vectors for efficient similarity searches. This allows the system to quickly find relevant information based on user queries.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;shadow=0;glass=0;fillStyle=auto;strokeColor=#001DBC;fontFamily=Helvetica;fontSize=12;fontColor=#ffffff;fillColor=#0050ef;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="980" width="366.25" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="&lt;li&gt;&lt;p&gt;&lt;strong&gt;Text Processing&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Chunking&lt;/strong&gt;: Split the extracted text into smaller, manageable chunks using &lt;code&gt;CharacterTextSplitter&lt;/code&gt; to facilitate better processing and retrieval.&lt;/li&gt;&lt;br&gt;&lt;/ul&gt;&lt;br&gt;&lt;/li&gt;&lt;br&gt;&lt;li&gt;&lt;/li&gt;" style="text;whiteSpace=wrap;html=1;fontSize=12;fontFamily=Tahoma;fontColor=#ffffff;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="307.9" y="765" width="309.21" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Tahoma;fontSize=11;fontColor=#E0E4FF;" edge="1" parent="1" source="60" target="61">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;p&gt;&lt;strong&gt;Vector Storage&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;FAISS Vector Store&lt;/strong&gt;: Store the text chunks as vectors for efficient similarity searches. This allows the system to quickly find relevant information based on user queries.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;shadow=0;glass=0;fillStyle=auto;strokeColor=#B20000;fontFamily=Helvetica;fontSize=12;fontColor=#ffffff;fillColor=#e51400;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="292.65999999999997" y="1420" width="389.06" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="&lt;br&gt;&lt;p&gt;&lt;strong&gt;Response Generation&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;br&gt;&lt;li&gt;&lt;strong&gt;Groq API&lt;/strong&gt;: Use the Groq API to generate a response based on the user query and the context of the retrieved chunks.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;shadow=0;glass=0;fillStyle=auto;strokeColor=#432D57;fontFamily=Helvetica;fontSize=12;fontColor=#ffffff;fillColor=#76608a;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="1660" width="400" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;br&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;strong&gt;PDF Upload and Extraction&lt;/strong&gt;&lt;/p&gt;&lt;br&gt;&lt;ul&gt;&lt;br&gt;&lt;li&gt;&lt;strong&gt;PDF Upload&lt;/strong&gt;: Users upload their PDF documents through the Streamlit interface.&lt;/li&gt;&lt;br&gt;&lt;li&gt;&lt;strong&gt;PDF Extraction&lt;/strong&gt;: Use libraries like &lt;code&gt;UnstructuredPDFLoader&lt;/code&gt; to extract text from the uploaded PDFs.&lt;/li&gt;&lt;br&gt;&lt;/ul&gt;&lt;br&gt;&lt;/li&gt;&lt;br&gt;&lt;li&gt;&lt;/li&gt;" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;shadow=0;glass=0;fillStyle=auto;fontFamily=Tahoma;fontSize=12;fontStyle=1;align=left;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" vertex="1" parent="1">
+                    <mxGeometry x="277.5" y="480" width="370" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=Tahoma;fontSize=11;fontColor=#E0E4FF;" edge="1" parent="1" source="63" target="60">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="&lt;br&gt;&lt;ul&gt;&lt;li&gt;&lt;li&gt;&lt;p&gt;&lt;strong&gt;User Query Handling&lt;/strong&gt;&lt;/p&gt;&lt;br/&gt;&lt;ul&gt;&lt;br/&gt;&lt;li&gt;&lt;strong&gt;Query Input&lt;/strong&gt;: Users submit their queries through the Streamlit interface.&lt;/li&gt;&lt;br/&gt;&lt;li&gt;&lt;strong&gt;FAISS Similarity Search&lt;/strong&gt;: The system converts the user query into a vector and searches for the most relevant text chunks in the FAISS index.&lt;/li&gt;&lt;br/&gt;&lt;/ul&gt;&lt;br/&gt;&lt;/li&gt;&lt;br/&gt;&lt;li&gt;&lt;/li&gt;&lt;/li&gt;&lt;/ul&gt;" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;shadow=0;glass=0;fillStyle=auto;strokeColor=#6F0000;fontFamily=Helvetica;fontSize=12;fontColor=#ffffff;fillColor=#a20025;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="1190" width="380" height="180" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
