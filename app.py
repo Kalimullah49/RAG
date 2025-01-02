@@ -50,7 +50,7 @@ def query_vector_db(query, vector_db):
         return f"Error interacting with Groq: {str(e)}"
 
 # Streamlit app
-st.title("PDF Chatbot")
+st.title("AI Mental Health Therapist :A Mind Care")
 
 # Upload PDF
 uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
